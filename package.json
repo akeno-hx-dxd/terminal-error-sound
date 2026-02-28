@@ -1,9 +1,10 @@
 {
-    "name": "terminal-error-sound",
-    "displayName": "Terminal Error Sound",
-    "description": "Plays a custom sound whenever there's an error in the terminal. Select your own audio file!",
-    "version": "1.0.0",
+    "name": "terminal-funny-error-sound",
+    "displayName": "Terminal Funny Error Sound",
+    "description": "Plays a funny custom sound whenever there's an error in the terminal. Select your own audio file!",
+    "version": "1.0.1",
     "publisher": "akeno-hx-dxd",
+    "icon": "icon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/akeno-hx-dxd/terminal-error-sound"
