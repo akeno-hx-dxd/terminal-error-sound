@@ -1,0 +1,99 @@
+{
+    "name": "terminal-error-sound",
+    "displayName": "Terminal Error Sound",
+    "description": "Plays a custom sound whenever there's an error in the terminal. Select your own audio file!",
+    "version": "1.0.0",
+    "publisher": "akeno-hx-dxd",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/akeno-hx-dxd/terminal-error-sound"
+    },
+    "engines": {
+        "vscode": "^1.93.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Terminal Error Sound",
+            "properties": {
+                "terminalErrorSound.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable/disable playing sound on terminal errors"
+                },
+                "terminalErrorSound.volume": {
+                    "type": "number",
+                    "default": 0.5,
+                    "minimum": 0,
+                    "maximum": 1,
+                    "description": "Volume level for the error sound (0.0 to 1.0)"
+                },
+                "terminalErrorSound.defaultSound": {
+                    "type": "string",
+                    "default": "teri-gand-mari.mp3",
+                    "description": "Default sound file to play on errors. Use 'random' for random mode, or the 'Select Sound' command to choose from available audio files in the audios folder."
+                },
+                "terminalErrorSound.errorPatterns": {
+                    "type": "array",
+                    "default": [
+                        "error:",
+                        "Error:",
+                        "ERROR:",
+                        "fail:",
+                        "FAIL:",
+                        "Failed",
+                        "fatal:",
+                        "FATAL:",
+                        "Exception",
+                        "Traceback",
+                        "command not found",
+                        "No such file"
+                    ],
+                    "description": "Patterns to detect errors in terminal output"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "terminalErrorSound.selectSound",
+                "title": "Terminal Error Sound: Select Sound"
+            },
+            {
+                "command": "terminalErrorSound.uploadSound",
+                "title": "Terminal Error Sound: Upload Sound"
+            },
+            {
+                "command": "terminalErrorSound.testSound",
+                "title": "Terminal Error Sound: Test Sound"
+            },
+            {
+                "command": "terminalErrorSound.toggle",
+                "title": "Terminal Error Sound: Toggle"
+            }
+        ]
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "lint": "eslint src --ext .ts",
+        "pretest": "npm run compile",
+        "test": "node ./out/test/runTest.js",
+        "package": "vsce package",
+        "publish": "vsce publish"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.93.0",
+        "@types/node": "^18.19.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "eslint": "^8.41.0",
+        "typescript": "^5.3.0"
+    }
+}
